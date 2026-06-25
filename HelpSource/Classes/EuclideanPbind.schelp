@@ -1,0 +1,39 @@
+CLASS:: EuclideanPbind
+summary:: Build a ready-to-play Pbind from an euclidean rhythm — pulses, steps, plus any standard Pbind keys
+categories:: Quarks>EuclideanPbinds
+related:: Classes/EuclideanRhythm, Classes/Peuclidean, Classes/EuclideanPresets, Classes/Pbind
+
+DESCRIPTION::
+Constructor that turns Bjorklund hits into code::\note:: events and rests into code::\rest:: events. Any extra args you pass through (code::freq::, code::degree::, code::scale::, code::pan::, …) land on the resulting Pbind unchanged, so the standard pitch + event model is available without rebuilding the Pbind by hand.
+
+Reserved keys: code::\pulses \steps \rotation \repeats \instrument \dur \amp::.
+
+code::
+// Tresillo on the default synth
+EuclideanPbind(3, 8, (instrument: \default, dur: 0.25, amp: 0.5)).play;
+
+// Cinquillo on a saw at 220 Hz
+EuclideanPbind(5, 8, (instrument: \default, dur: 0.125, freq: 220)).play;
+
+// Use a preset by name
+EuclideanPbind.preset(\africanBell, (instrument: \default, dur: 0.1)).play;
+::
+
+CLASSMETHODS::
+
+METHOD:: new
+ARGUMENT:: pulses
+Number of hits.
+ARGUMENT:: steps
+Number of slots.
+ARGUMENT:: args
+Event with any combination of: code::rotation, repeats, instrument, dur, amp:: + any standard Pbind key. Defaults: code::\instrument default, \dur 0.25, \amp 0.5, \repeats inf::.
+returns:: A link::Classes/Pbind:: ready to code::.play::.
+
+METHOD:: preset
+Look up the rhythm from link::Classes/EuclideanPresets:: and build a Pbind from it. The preset's rotation is used unless code::args[\rotation]:: overrides it.
+
+ARGUMENT:: name
+A preset Symbol (e.g. code::\tresillo::, code::\cinquillo::).
+ARGUMENT:: args
+Same as code::new::, minus the rhythm spec.

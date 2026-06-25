@@ -1,0 +1,34 @@
+CLASS:: Peuclidean
+summary:: Pattern that yields a Bjorklund 1/0 stream — composable with any other Pbind input
+categories:: Quarks>EuclideanPbinds
+related:: Classes/EuclideanRhythm, Classes/EuclideanPbind, Classes/Pbind
+
+DESCRIPTION::
+A standard SC link::Classes/Pattern:: subclass that yields the bits of an euclidean rhythm one at a time. Drop it anywhere a Pbind expects a stream — most naturally as a multiplier on code::\amp:: or as a code::\trig:: source.
+
+code::
+// Hits at full amp, rests muted
+Pbind(\instrument, \default, \dur, 0.25,
+      \amp, Peuclidean(3, 8) * 0.6).play;
+
+// Use the bit stream as a trigger
+~stream = Peuclidean(5, 8).asStream;
+8.do({ ~stream.next.postln });
+::
+
+CLASSMETHODS::
+
+METHOD:: new
+ARGUMENT:: pulses
+Number of hits.
+ARGUMENT:: steps
+Number of slots.
+ARGUMENT:: rotation
+Cyclic shift (default 0).
+ARGUMENT:: repeats
+How many times to loop the pattern (default code::inf::).
+
+INSTANCEMETHODS::
+
+METHOD:: embedInStream
+Yields one bit per step, code::repeats:: times, then returns the wrapping value.

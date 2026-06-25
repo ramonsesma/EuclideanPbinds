@@ -1,0 +1,11 @@
+(
+    name: "EuclideanPbinds",
+    summary: "Bjorklund euclidean rhythms wrapped as playable Pattern / Pbind / Pdef — preset library included.",
+    version: "0.1.0",
+    schelp: "EuclideanPbinds",
+    isCompatible: { true },
+    dependencies: [],
+    author: "Studio Sesma",
+    url: "https://github.com/studio-sesma/EuclideanPbinds",
+    license: "MIT"
+)

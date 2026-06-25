@@ -1,0 +1,68 @@
+CLASS:: EuclideanRhythm
+summary:: Bjorklund euclidean rhythm utility — patterns, indices, beat-aligned seconds, post-window visualisation.
+categories:: Quarks>EuclideanPbinds
+related:: Classes/Peuclidean, Classes/EuclideanPbind, Classes/EuclideanPresets
+
+DESCRIPTION::
+Bjorklund's algorithm distributes code::pulses:: hits across code::steps:: slots as evenly as integer arithmetic allows. The familiar grooves emerge naturally:
+
+list::
+## strong::E(3, 8):: — Cuban tresillo (X..X..X.)
+## strong::E(5, 8):: — Cuban cinquillo (X.XX.XX.)
+## strong::E(7, 12):: — West-African bell
+## strong::E(3, 4):: — Cumbia (XXX.)
+::
+
+This class restates the algorithm so this quark has no hard dependency on the link::https://github.com/redFrik/Bjorklund##Bjorklund:: quark.
+
+CLASSMETHODS::
+
+METHOD:: pattern
+Returns an code::Array:: of 1s and 0s, length = code::steps::.
+
+ARGUMENT:: pulses
+Number of hits. Clamped to code::[0, steps]::.
+
+ARGUMENT:: steps
+Number of slots in the rhythm.
+
+ARGUMENT:: rotation
+Cyclic left shift applied after generation. Default 0.
+
+returns:: Array of Integers (1 = hit, 0 = rest).
+
+METHOD:: onsetIndices
+Just the slot indices where a hit lands.
+
+returns:: Array of Integers.
+
+METHOD:: onsetSeconds
+Beat-aligned absolute offsets in seconds.
+
+ARGUMENT:: pulses
+Number of hits.
+
+ARGUMENT:: steps
+Number of slots.
+
+ARGUMENT:: bpm
+Tempo in beats per minute.
+
+ARGUMENT:: stepBeats
+Length of one slot in beats (default 0.25 = 1/16 grid).
+
+ARGUMENT:: rotation
+Cyclic shift (default 0).
+
+returns:: Array of Floats.
+
+METHOD:: visualise
+Returns a string like code::"X..X..X.":: — handy in the post window when iterating on a groove.
+
+EXAMPLES::
+
+code::
+EuclideanRhythm.pattern(3, 8);        // -> [1, 0, 0, 1, 0, 0, 1, 0]
+EuclideanRhythm.visualise(5, 16);     // -> "X..X.X..X..X.X.."
+EuclideanRhythm.onsetSeconds(3, 8, 120, 0.25);
+::

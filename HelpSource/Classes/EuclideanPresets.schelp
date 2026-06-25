@@ -1,0 +1,29 @@
+CLASS:: EuclideanPresets
+summary:: Named euclidean rhythms — tresillo, cinquillo, son clave, African bell, four-on-floor, …
+categories:: Quarks>EuclideanPbinds
+related:: Classes/EuclideanRhythm, Classes/EuclideanPbind
+
+DESCRIPTION::
+A small curated table of named rhythms drawn from Godfried Toussaint's strong::The Geometry of Musical Rhythm::. Each entry is code::[pulses, steps, rotation]:: — feed straight to link::Classes/EuclideanRhythm:: or link::Classes/EuclideanPbind::.
+
+code::
+EuclideanPresets.get(\tresillo);       // -> [3, 8, 0]
+EuclideanPresets.names;                // -> [\africanBell, \bossa, \cinquillo, …]
+EuclideanPresets.pattern(\sonClave);   // -> array of bits
+::
+
+CLASSMETHODS::
+
+METHOD:: get
+ARGUMENT:: name
+A Symbol from code::names::.
+returns:: code::[pulses, steps, rotation]:: Array, or nil if unknown.
+
+METHOD:: names
+returns:: Sorted Array of preset Symbols.
+
+METHOD:: pattern
+Shortcut: code::EuclideanRhythm.pattern(*spec):: for the named preset.
+
+METHOD:: table
+The IdentityDictionary of presets. Read it for inspection; don't mutate.
