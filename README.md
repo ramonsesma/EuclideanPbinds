@@ -1,14 +1,21 @@
-# EuclideanPbinds
+﻿# EuclideanPbinds
 
-A SuperCollider quark for Bjorklund euclidean rhythms — patterns, beats,
+![SuperCollider Quarks cover](assets/supercollider-quarks-cover.png)
+
+[![Release](https://img.shields.io/github/v/release/ramonsesma/EuclideanPbinds)](https://github.com/ramonsesma/EuclideanPbinds/releases)
+[![Validate](https://img.shields.io/github/actions/workflow/status/ramonsesma/EuclideanPbinds/validate.yml?branch=main&label=validate)](https://github.com/ramonsesma/EuclideanPbinds/actions/workflows/validate.yml)
+[![License](https://img.shields.io/github/license/ramonsesma/EuclideanPbinds)](https://github.com/ramonsesma/EuclideanPbinds/blob/main/LICENSE)
+[![Quark](https://img.shields.io/badge/quark-0.1.0-blue)](https://github.com/ramonsesma/EuclideanPbinds/releases/tag/0.1.0)
+
+A SuperCollider quark for Bjorklund euclidean rhythms â€” patterns, beats,
 and a playable Pbind wrapper.
 
 | Class | Purpose |
 |---|---|
 | `EuclideanRhythm` | Bjorklund pattern as Array, onset indices, beat-aligned seconds, post-window visualisation. |
-| `Peuclidean` | `Pattern` subclass — yields the bit stream, composable with any Pbind input. |
-| `EuclideanPbind` | Convenience constructor: bits → `\note`/`\rest` events. Passes any extra Pbind key through. |
-| `EuclideanPresets` | Named rhythms: `\tresillo`, `\cinquillo`, `\sonClave`, `\africanBell`, `\cumbia`, `\fourOnFloor`, … |
+| `Peuclidean` | `Pattern` subclass â€” yields the bit stream, composable with any Pbind input. |
+| `EuclideanPbind` | Convenience constructor: bits â†’ `\note`/`\rest` events. Passes any extra Pbind key through. |
+| `EuclideanPresets` | Named rhythms: `\tresillo`, `\cinquillo`, `\sonClave`, `\africanBell`, `\cumbia`, `\fourOnFloor`, â€¦ |
 
 ## Quick start
 
@@ -58,3 +65,4 @@ sclang and Node produce the same 1/0 sequences for any `(pulses, steps,
 rotation)` triple.
 
 License: MIT.
+
