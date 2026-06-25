@@ -30,7 +30,7 @@ Pbind(\instrument, \default, \dur, 0.25,
 ## Install
 
 ```supercollider
-Quarks.install("https://github.com/studio-sesma/EuclideanPbinds");
+Quarks.install("https://github.com/ramonsesma/EuclideanPbinds");
 ```
 
 Local dev: clone into `downloaded-quarks/` and add the path to
